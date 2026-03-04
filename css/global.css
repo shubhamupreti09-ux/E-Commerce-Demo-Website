@@ -1,0 +1,136 @@
+/* Google Fonts: Outfit for headings, Inter for body */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap");
+
+:root {
+  /* Color Palette - Premium Dark Theme */
+  --bg-color: #0b0c10;
+  --bg-secondary: #1a1c23;
+  --bg-tertiary: #252830;
+  --primary-color: #6c63ff; /* Vibrant Purple */
+  --primary-hover: #5a52d5;
+  --secondary-color: #00e5ff; /* Cyan accent */
+  --text-main: #f8f8f2;
+  --text-muted: #a0a4b8;
+  --danger-color: #ff4757;
+  --success-color: #2ed573;
+  --border-color: rgba(255, 255, 255, 0.08);
+
+  /* Shadows and Glassmorphism */
+  --glass-bg: rgba(26, 28, 35, 0.6);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --soft-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-normal: 0.3s ease-in-out;
+
+  /* Typography */
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Outfit", sans-serif;
+
+  /* Layout */
+  --max-width: 1280px;
+  --nav-height: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+  outline: none;
+}
+
+/* Custom Scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Utilities */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+main {
+  flex: 1;
+  padding-top: var(--nav-height); /* To account for fixed navbar */
+}

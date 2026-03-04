@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | NexShop</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="admin-body">
+
+    <!-- Admin Login Overlay -->
+    <div id="admin-login-overlay" class="modal-overlay" style="z-index: 9999; background: var(--bg-color);">
+        <div class="modal card" style="text-align: center; max-width: 400px;">
+            <i class="ph ph-shield-check text-gradient" style="font-size: 4rem; margin-bottom: 16px;"></i>
+            <h2 style="margin-bottom: 8px;">Admin Access Route</h2>
+            <p class="text-muted" style="margin-bottom: 24px;">Please enter the master password to continue.</p>
+            
+            <form id="admin-login-form" class="checkout-form">
+                <div class="input-group" style="text-align: left;">
+                    <input type="password" id="admin-password" class="input-control" placeholder="Password" required>
+                </div>
+                <!-- Adding a tiny hint just for the demo user -->
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: -8px; margin-bottom: 16px; text-align: left;">Hint: "admin123"</p>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login to Dashboard</button>
+            </form>
+            <a href="index.html" style="display: block; margin-top: 16px; color: var(--text-muted); font-size: 0.9rem;">&larr; Return to Storefront</a>
+        </div>
+    </div>
+
+    <!-- Admin Wrapper (hidden until login) -->
+    <div id="admin-wrapper" style="display: none; width: 100%;">
+        <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <h2 class="text-gradient">NexShop Admin</h2>
+        </div>
+        <nav class="admin-nav">
+            <a href="#dashboard" class="active" id="nav-dashboard"><i class="ph ph-squares-four"></i> Dashboard</a>
+            <a href="#products" id="nav-products"><i class="ph ph-package"></i> Products</a>
+            <a href="#inventory" id="nav-inventory"><i class="ph ph-stack"></i> Inventory <span class="badge" id="alert-badge" style="margin-left:auto; display:none;">!</span></a>
+            <a href="#discounts" id="nav-discounts"><i class="ph ph-tag"></i> Discounts</a>
+            <a href="index.html" style="margin-top:auto;"><i class="ph ph-storefront"></i> View Store</a>
+        </nav>
+    </aside>
+
+    <!-- Admin Content -->
+    <main class="admin-main">
+        <header class="admin-header">
+            <h1 id="page-title">Dashboard Overview</h1>
+            <div class="admin-profile">
+                <span style="font-weight: 500;">Admin User</span>
+                <div class="avatar-small">A</div>
+            </div>
+        </header>
+
+        <div class="admin-content-area">
+            
+            <!-- Dashboard View -->
+            <div id="view-dashboard" class="admin-view active">
+                <div class="stats-grid">
+                    <div class="stat-card card">
+                        <i class="ph ph-currency-dollar text-gradient"></i>
+                        <div class="stat-info">
+                            <h4>Total Revenue</h4>
+                            <h2 id="stat-revenue">$0.00</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card card">
+                        <i class="ph ph-shopping-bag" style="color: var(--secondary-color);"></i>
+                        <div class="stat-info">
+                            <h4>Total Orders</h4>
+                            <h2 id="stat-orders">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card card">
+                        <i class="ph ph-package" style="color: var(--success-color);"></i>
+                        <div class="stat-info">
+                            <h4>Total Products</h4>
+                            <h2 id="stat-products">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card card" id="low-stock-stat" style="cursor:pointer;" onclick="document.getElementById('nav-inventory').click()">
+                        <i class="ph ph-warning-circle" style="color: var(--danger-color);"></i>
+                        <div class="stat-info">
+                            <h4>Low Stock Alerts</h4>
+                            <h2 id="stat-low-stock">0</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 40px 0 20px;">Recent Orders</h3>
+                <div class="card" style="overflow-x: auto;">
+                    <table class="admin-table" id="recent-orders-table" style="min-width: 600px;">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Products View -->
+            <div id="view-products" class="admin-view hidden">
+                <div style="display:flex; justify-content:space-between; margin-bottom: 24px;">
+                    <h3>Manage Products</h3>
+                    <button class="btn btn-primary" onclick="openProductModal()"><i class="ph ph-plus"></i> Add Product</button>
+                </div>
+                
+                <div class="card" style="overflow-x: auto;">
+                    <table class="admin-table" id="products-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Inventory View -->
+            <div id="view-inventory" class="admin-view hidden">
+                <h3>Inventory Management</h3>
+                <p class="text-muted" style="margin-bottom: 24px;">Automated stock alerts highlight products requiring attention.</p>
+                
+                <div class="card" style="overflow-x: auto;">
+                    <table class="admin-table" id="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Current Stock</th>
+                                <th>Status</th>
+                                <th>Update Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Discounts View -->
+            <div id="view-discounts" class="admin-view hidden">
+                <h3>Discounts & Coupons</h3>
+                <p class="text-muted" style="margin-bottom: 24px;">Currently hardcoded active promo code in system: <strong>SUMMER40</strong></p>
+                <div class="card" style="max-width: 500px;">
+                    <h4>Create New Campaign (Demo UI)</h4>
+                    <form class="checkout-form" style="margin-top: 16px;">
+                        <div class="input-group">
+                            <label>Coupon Code</label>
+                            <input type="text" class="input-control" placeholder="e.g. WINTER50">
+                        </div>
+                        <div class="input-group">
+                            <label>Discount Percentage</label>
+                            <input type="number" class="input-control" placeholder="%" min="1" max="100">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="App.showToast('Coupon created locally for demo', 'success');">Save Campaign</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+        <!-- Product Modal -->
+        <div class="modal-overlay hidden" id="product-modal-overlay">
+            <div class="modal card">
+                <button class="btn-icon" style="position: absolute; top:16px; right:16px;" onclick="closeProductModal()"><i class="ph ph-x"></i></button>
+                <h2 id="product-modal-title" style="margin-bottom: 24px;">Add Product</h2>
+                <form id="product-form" class="checkout-form">
+                    <input type="hidden" id="prod-id">
+                    
+                    <div class="input-group">
+                        <label>Product Name</label>
+                        <input type="text" id="prod-name" class="input-control" required>
+                    </div>
+                    
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                        <div class="input-group">
+                            <label>Price ($)</label>
+                            <input type="number" id="prod-price" class="input-control" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Stock Quantity</label>
+                            <input type="number" id="prod-stock" class="input-control" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Category</label>
+                        <select id="prod-category" class="input-control" required>
+                            <option value="clothing">Clothing</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="grocery">Grocery</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Image URL</label>
+                        <input type="text" id="prod-image" class="input-control" placeholder="https://" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Description</label>
+                        <textarea id="prod-description" class="input-control" rows="3"></textarea>
+                    </div>
+
+                    <label class="checkbox-label" style="margin-bottom: 24px;">
+                        <input type="checkbox" id="prod-featured"> Featured on Home Page
+                    </label>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Save Product</button>
+                </form>
+            </div>
+        </div>
+    </div> <!-- End Admin Wrapper -->
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
+

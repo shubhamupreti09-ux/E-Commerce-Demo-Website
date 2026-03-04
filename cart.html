@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | NexShop</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo text-gradient">NexShop</a>
+            <button class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="shop.html?category=clothing" class="nav-link">Clothing</a></li>
+                <li><a href="shop.html?category=grocery" class="nav-link">Grocery</a></li>
+                <li><a href="contact.html" class="nav-link">Offline Store</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="cart-page container">
+        <h1 class="page-title" style="margin-bottom: 40px;">Shopping <span class="text-gradient">Cart</span></h1>
+
+        <div class="cart-layout" id="cart-container">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Checkout Mock Modal -->
+        <div class="modal-overlay hidden" id="checkout-modal">
+            <div class="modal card">
+                <button class="btn-icon modal-close" id="close-checkout" style="position: absolute; top: 16px; right: 16px;"><i class="ph ph-x"></i></button>
+                <h2>Secure Checkout</h2>
+                <div class="checkout-tabs">
+                    <button class="active">Credit Card</button>
+                    <button>PayPal</button>
+                    <button>Guest</button>
+                </div>
+                
+                <form id="checkout-form" class="checkout-form">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" class="input-control" required placeholder="you@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Shipping Address</label>
+                        <input type="text" class="input-control" required placeholder="123 Tech Avenue, Silicon Valley, CA 94000">
+                    </div>
+                    
+                    <h4 style="margin: 20px 0 10px;">Payment Details</h4>
+                    <div class="payment-mock card" style="background: var(--bg-color); padding: 16px; display:flex; flex-direction:column; gap:12px;">
+                        <input type="text" class="input-control" required placeholder="Card Number (0000 0000 0000 0000)" maxlength="19">
+                        <div style="display:flex; gap:12px;">
+                            <input type="text" class="input-control" required placeholder="MM/YY" style="flex:1;">
+                            <input type="text" class="input-control" required placeholder="CVC" style="flex:1;">
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; font-weight: bold; font-size: 1.2rem;">
+                        <span>Total:</span>
+                        <span id="checkout-total-val" class="text-gradient">$0.00</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 24px;">
+                        <i class="ph ph-lock-key"></i> Pay Securely Now
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Modal / Invoice -->
+        <div class="modal-overlay hidden" id="success-modal">
+            <div class="modal card" style="text-align: center;">
+                <i class="ph ph-check-circle" style="font-size: 4rem; color: var(--success-color); margin-bottom: 20px;"></i>
+                <h2>Payment Successful!</h2>
+                <p style="color: var(--text-muted); margin: 16px 0;">Thank you for your purchase. An automated invoice receipt has been sent to your email.</p>
+                
+                <div class="invoice-box card" style="background: var(--bg-color); text-align: left; margin-bottom: 24px;">
+                    <p><strong>Order ID:</strong> <span id="success-order-id">ORD-123</span></p>
+                    <p><strong>Amount Paid:</strong> <span id="success-amount" class="text-gradient">$0.00</span></p>
+                </div>
+
+                <button class="btn btn-primary" onclick="window.location.href='index.html'" style="width: 100%;">Return to Home</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>&copy; 2026 NexShop. All rights reserved. Demo Build.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
+

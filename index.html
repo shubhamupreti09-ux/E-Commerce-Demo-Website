@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexShop | Premium Electronics</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="nav-logo text-gradient">NexShop</a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="hamburger" id="hamburger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li>
+            <a href="shop.html?category=clothing" class="nav-link"
+              >Clothing</a
+            >
+          </li>
+          <li>
+            <a href="shop.html?category=grocery" class="nav-link"
+              >Grocery</a
+            >
+          </li>
+          <li><a href="contact.html" class="nav-link">Offline Store</a></li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <a href="shop.html" class="nav-action-btn" aria-label="Search">
+            <i class="ph ph-magnifying-glass"></i>
+          </a>
+          <a href="profile.html" class="nav-action-btn" aria-label="Profile">
+            <i class="ph ph-user"></i>
+          </a>
+          <a href="cart.html" class="nav-action-btn" aria-label="Cart">
+            <i class="ph ph-shopping-cart"></i>
+            <span class="badge" id="cart-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              Experience <br />
+              The <span class="text-gradient">Future</span> of Tech
+            </h1>
+            <p class="hero-subtitle">
+              Discover premium gadgets, cutting-edge wearables, and audiophile
+              gear with next-day delivery.
+            </p>
+            <div class="hero-actions">
+              <a href="shop.html" class="btn btn-primary"
+                >Shop Now <i class="ph ph-arrow-right"></i
+              ></a>
+              <a href="shop.html?category=new" class="btn btn-secondary"
+                >New Arrivals</a
+              >
+            </div>
+          </div>
+          <!-- Hero Image (Illustrative) -->
+          <div class="hero-visual">
+            <img
+              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
+              alt="Premium VR Headset"
+            />
+            <div class="floating-badge top-right card">
+              <i class="ph ph-star-fill text-gradient"></i> 4.9 Rating
+            </div>
+            <div class="floating-badge bottom-left card">Free Shipping</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Section -->
+      <section class="categories section-padding">
+        <div class="container">
+          <h2 class="section-title">Shop by Category</h2>
+          <div class="category-grid">
+            <a href="shop.html?category=clothing" class="category-card card">
+              <i class="ph ph-t-shirt"></i>
+              <h3>Clothing</h3>
+            </a>
+            <a href="shop.html?category=electronics" class="category-card card">
+              <i class="ph ph-desktop"></i>
+              <h3>Electronics</h3>
+            </a>
+            <a href="shop.html?category=electrical" class="category-card card">
+              <i class="ph ph-plug"></i>
+              <h3>Electrical</h3>
+            </a>
+            <a href="shop.html?category=grocery" class="category-card card">
+              <i class="ph ph-shopping-bag"></i>
+              <h3>Grocery</h3>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products -->
+      <section class="featured section-padding">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Trending Now</h2>
+            <a href="shop.html" class="view-all"
+              >View All <i class="ph ph-arrow-right"></i
+            ></a>
+          </div>
+          <div class="product-grid" id="featured-products">
+            <!-- Javascript will inject products here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Promotional Banner -->
+      <section class="promo">
+        <div class="container">
+          <div class="promo-banner card">
+            <div class="promo-content">
+              <h2>Summer Tech Sale is Here!</h2>
+              <p>
+                Get up to 40% off on all wearables. Use code
+                <strong>SUMMER40</strong> at checkout.
+              </p>
+              <a href="shop.html?category=wearables" class="btn btn-primary"
+                >Claim Discount</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3 class="text-gradient">NexShop</h3>
+            <p>
+              Your one-stop destination for premium electronics and futuristic
+              gadgets.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop All</a></li>
+              <li><a href="profile.html">My Account</a></li>
+              <li><a href="admin.html">Admin Dashboard</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Customer Service</h4>
+            <ul class="footer-links">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Shipping Policy</a></li>
+              <li><a href="#">Returns & Exchanges</a></li>
+              <li><a href="#">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Subscribe</h4>
+            <p
+              style="
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+              "
+            >
+              Get the latest drops and discounts.
+            </p>
+            <div class="input-group" style="flex-direction: row">
+              <input
+                type="email"
+                class="input-control"
+                placeholder="Email Address"
+              />
+              <button class="btn btn-primary" style="padding: 12px">
+                <i class="ph ph-paper-plane-tilt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 NexShop. All rights reserved. Demo Build.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/init-data.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- Page Specific Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Load featured products when data is ready
+        setTimeout(() => {
+          const products = Store.getProducts();
+          const featured = products.filter((p) => p.isFeatured).slice(0, 4);
+
+          const grid = document.getElementById("featured-products");
+
+          if (featured.length === 0) {
+            grid.innerHTML =
+              "<p>No products found. Add some in the admin panel.</p>";
+            return;
+          }
+
+          featured.forEach((product) => {
+            const price = Number(product.price).toFixed(2);
+            grid.innerHTML += `
+                        <div class="product-card card">
+                            <div class="product-img-wrapper">
+                                <img src="${product.image}" alt="${product.name}" class="product-img">
+                                ${product.stock <= 5 ? '<span class="badge float-badge">Low Stock</span>' : ""}
+                            </div>
+                            <div class="product-info">
+                                <span class="product-category">${product.category}</span>
+                                <h3 class="product-name"><a href="product.html?id=${product.id}">${product.name}</a></h3>
+                                <div class="product-price-action">
+                                    <span class="product-price">$${price}</span>
+                                    <button class="btn-icon" onclick="App.addToCart('${product.id}')" aria-label="Add to cart">
+                                        <i class="ph ph-shopping-cart-simple"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+          });
+        }, 100); // Tiny timeout to ensure init-data.js runs
+      });
+    </script>
+  </body>
+</html>
+

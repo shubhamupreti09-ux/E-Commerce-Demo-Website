@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login or Signup | NexShop</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo text-gradient">NexShop</a>
+            <button class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="shop.html?category=clothing" class="nav-link">Clothing</a></li>
+                <li><a href="shop.html?category=grocery" class="nav-link">Grocery</a></li>
+                <li><a href="contact.html" class="nav-link">Offline Store</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="shop.html" class="nav-action-btn" aria-label="Search"><i class="ph ph-magnifying-glass"></i></a>
+                <a href="profile.html" class="nav-action-btn" aria-label="Profile"><i class="ph ph-user"></i></a>
+                <a href="cart.html" class="nav-action-btn" aria-label="Cart">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="badge" id="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-page">
+        <div class="card auth-card">
+            <div class="auth-tabs">
+                <button class="active" id="tab-login" onclick="switchAuthTab('login')">Login</button>
+                <button id="tab-signup" onclick="switchAuthTab('signup')">Sign Up</button>
+            </div>
+            
+            <form id="auth-form" class="auth-form">
+                <div class="input-group hidden" id="name-group">
+                    <label>Full Name</label>
+                    <input type="text" id="auth-name" class="input-control" placeholder="John Doe">
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="auth-email" class="input-control" required placeholder="you@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="auth-password" class="input-control" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary auth-submit-btn" id="auth-submit-btn">Login Securely</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>&copy; 2026 NexShop. All rights reserved. Demo Build.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

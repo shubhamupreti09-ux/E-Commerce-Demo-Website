@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Store | NexShop</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo text-gradient">NexShop</a>
+            <button class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="shop.html?category=clothing" class="nav-link">Clothing</a></li>
+                <li><a href="shop.html?category=grocery" class="nav-link">Grocery</a></li>
+                <li><a href="contact.html" class="nav-link active">Offline Store</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="shop.html" class="nav-action-btn" aria-label="Search"><i class="ph ph-magnifying-glass"></i></a>
+                <a href="profile.html" class="nav-action-btn" aria-label="Profile"><i class="ph ph-user"></i></a>
+                <a href="cart.html" class="nav-action-btn" aria-label="Cart">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="badge" id="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="contact-page container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 class="page-title">Visit Our <span class="text-gradient">Offline Store</span></h1>
+            <p class="text-muted" style="max-width: 600px; margin: 16px auto 0;">Experience our premium products in person. Our experts are ready to help you find exactly what you need.</p>
+        </div>
+
+        <div class="contact-layout">
+            <!-- Store Info -->
+            <div class="contact-info-card">
+                <h2 style="margin-bottom: 32px;">Store Information</h2>
+                
+                <div class="info-item">
+                    <i class="ph ph-map-pin"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>123 Tech Avenue, Silicon District<br>New Delhi, ND 110001</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="ph ph-clock"></i>
+                    <div>
+                        <h4>Opening Hours</h4>
+                        <p>Monday - Friday: 10:00 AM - 9:00 PM<br>Saturday - Sunday: 11:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="ph ph-phone"></i>
+                    <div>
+                        <h4>Contact</h4>
+                        <p>+91 (800) 123-4567<br>hello@nexshop.in</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; display: flex; gap: 16px;">
+                    <a href="https://instagram.com" target="_blank" class="btn-icon card" style="font-size: 1.5rem; border-radius: 50%; padding: 12px;"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="btn-icon card" style="font-size: 1.5rem; border-radius: 50%; padding: 12px;"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="btn-icon card" style="font-size: 1.5rem; border-radius: 50%; padding: 12px;"><i class="ph ph-facebook-logo"></i></a>
+                </div>
+            </div>
+
+            <!-- Google Map Embed -->
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.114827184469!2d77.2159556106689!3d28.62892055662703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e47393c3f1!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1716912345678!5m2!1sen!2sin" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>&copy; 2026 NexShop. All rights reserved. Demo Build.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* Contact Page Styles */
+.contact-page {
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.contact-info-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background: rgba(138, 43, 226, 0.1);
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.info-item h4 {
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+    color: var(--text-main);
+}
+
+.info-item p {
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: invert(90%) hue-rotate(180deg); /* Simple trick to make map match dark theme */
+}
+
+@media (max-width: 768px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-container {
+        min-height: 300px;
+    }
+}

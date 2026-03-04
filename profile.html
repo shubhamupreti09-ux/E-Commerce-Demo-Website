@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | NexShop</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo text-gradient">NexShop</a>
+            <button class="hamburger" id="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="shop.html" class="nav-link">Shop</a></li>
+                <li><a href="shop.html?category=clothing" class="nav-link">Clothing</a></li>
+                <li><a href="shop.html?category=grocery" class="nav-link">Grocery</a></li>
+                <li><a href="contact.html" class="nav-link">Offline Store</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="shop.html" class="nav-action-btn" aria-label="Search"><i class="ph ph-magnifying-glass"></i></a>
+                <a href="profile.html" class="nav-action-btn" aria-label="Profile"><i class="ph ph-user"></i></a>
+                <a href="cart.html" class="nav-action-btn" aria-label="Cart">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="badge" id="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="profile-page container">
+        <div class="profile-layout">
+            <!-- Sidebar -->
+            <aside class="profile-sidebar card">
+                <div class="profile-header">
+                    <div class="avatar">U</div>
+                    <div>
+                        <h3 id="user-name">Guest User</h3>
+                        <p class="text-muted" id="user-email">guest@example.com</p>
+                    </div>
+                </div>
+                <nav class="profile-nav">
+                    <a href="#orders" class="active" id="tab-orders"><i class="ph ph-package"></i> Order History</a>
+                    <a href="#settings" id="tab-settings"><i class="ph ph-gear"></i> Account Settings</a>
+                    <a href="#wishlist" id="tab-wishlist"><i class="ph ph-heart"></i> Wishlist</a>
+                    <a href="#" id="tab-logout" style="color: var(--danger-color); margin-top: auto;"><i class="ph ph-sign-out"></i> Logout</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="profile-content">
+                
+                <!-- Orders Tab -->
+                <div id="content-orders" class="tab-content active">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 24px;">Order History</h2>
+                    <div id="orders-list" class="orders-list">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="content-settings" class="tab-content hidden">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 24px;">Account Settings</h2>
+                    <div class="card" style="background: var(--bg-color);">
+                        <form id="settings-form">
+                            <div class="input-group">
+                                <label>Full Name</label>
+                                <input type="text" class="input-control" value="Guest User">
+                            </div>
+                            <div class="input-group">
+                                <label>Email Address</label>
+                                <input type="email" class="input-control" value="guest@example.com">
+                            </div>
+                            <div class="input-group">
+                                <label>Shipping Address</label>
+                                <textarea class="input-control" rows="3">123 Tech Avenue, Silicon Valley, CA 94000</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 16px;">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Tab -->
+                <div id="content-wishlist" class="tab-content hidden">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 24px;">My Wishlist</h2>
+                    <div class="product-grid" id="wishlist-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none;">
+                <p>&copy; 2026 NexShop. All rights reserved. Demo Build.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
